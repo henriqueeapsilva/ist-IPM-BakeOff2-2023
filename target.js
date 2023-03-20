@@ -80,7 +80,7 @@ class Target
   draw()
   {
     // Draw target
-    fill(color(155,155,155));                 
+    fill(this.color.r, this.color.g, this.color.b);                 
     circle(this.x, this.y, this.width);
     
     // Draw label
