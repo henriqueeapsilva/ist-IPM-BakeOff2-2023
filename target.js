@@ -85,6 +85,7 @@ class Target
     
     // Draw label
     textFont("Arial", 12);
+    textStyle(BOLD);
     fill(color(255,255,255));
     textAlign(CENTER);
     text(this.label, this.x, this.y);
