@@ -3,7 +3,9 @@ class Color {
     this.r = r;
     this.g = g;
     this.b = b;
+    this.a = 255;
   }
+  
 }
 
 var typeColor = {
@@ -52,26 +54,30 @@ var typeColor = {
   Tomato: new Color(200, 9, 0),
   Zucchini: new Color(78, 102, 54)
 }
+
 // Target class (position and width)
 class Target
 {
   
-  constructor(x, y, w, l, id, type)
+  constructor(x, y, w,h , l, id, type)
   {
     this.x      = x;
     this.y      = y;
     this.width  = w;
+    this.height = h;
     this.label  = l;
     this.id     = id;
     this.type   = type;
-    this.color  = typeColor[type];
   }
   
   // Checks if a mouse click took place
   // within the target
   clicked(mouse_x, mouse_y)
   {
-    return dist(this.x, this.y, mouse_x, mouse_y) < this.width / 2;
+    return mouse_x < this.x + (this.width) / 2 &&
+          mouse_x > this.x - (this.width) / 2  &&
+          mouse_y < this.y + (this.height) / 2 &&
+          mouse_y > this.y - (this.height) / 2;
   }
   
   // Draws the target (i.e., a circle)
@@ -79,14 +85,25 @@ class Target
   draw()
   {
     // Draw target
-    fill(this.color.r, this.color.g, this.color.b);                 
-    circle(this.x, this.y, this.width);
+    
+    let colorRect = typeColor[this.type];
+    
+    if(this.clicked(mouseX,mouseY))
+      fill(colorRect.r, colorRect.g, colorRect.b, 150); 
+    else{
+    fill(colorRect.r, colorRect.g, colorRect.b);   
+    }              
+    rectMode(CENTER);
+    rect(this.x,this.y,this.width, this.height);
     
     // Draw label
-    textFont("Arial", 12);
+    textFont("Arial", 18);
     textStyle(BOLD);
     fill(color(255,255,255));
+    strokeWeight(2);
+    stroke(0);
     textAlign(CENTER);
     text(this.label, this.x, this.y);
+
   }
 }
