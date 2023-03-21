@@ -1,4 +1,4 @@
-// Bakeoff #2 -- Seleção em Interfaces Densas
+  // Bakeoff #2 -- Seleção em Interfaces Densas
 // IPM 2022-23, Período 3
 // Entrega: até dia 31 de Março às 23h59 através do Fenix
 // Bake-off: durante os laboratórios da semana de 10 de Abril
@@ -189,29 +189,36 @@ function continueTest()
 }
 
 // Creates and positions the UI targets
-function createTargets(target_size, horizontal_gap, vertical_gap)
+function createTargets(target_width, target_height, horizontal_gap, vertical_gap)
 {
   // Define the margins between targets by dividing the white space 
   // for the number of targets minus one
   h_margin = horizontal_gap / (GRID_COLUMNS -1);
   v_margin = vertical_gap / (GRID_ROWS - 1);
   
+  let objectsArray = legendas.getArray();
+  
+  objectsArray.sort();
+  
+  let j = 0;
+  
   // Set targets in a 8 x 10 grid
   for (var r = 0; r < GRID_ROWS; r++)
   {
     for (var c = 0; c < GRID_COLUMNS; c++)
     {
-      let target_x = 40 + (h_margin + target_size) * c + target_size/2;        // give it some margin from the left border
-      let target_y = (v_margin + target_size) * r + target_size/2;
+      let target_x = 40 + (h_margin + target_width) * c + target_width/2;        // give it some margin from the left border
+      let target_y = (v_margin + target_height) * r + target_height/2;
       
-      // Find the appropriate label and ID for this target
-      let legendas_index = c + GRID_COLUMNS * r;
-      let target_label = legendas.getString(legendas_index, 0);
-      let target_id = legendas.getNum(legendas_index, 1);
-      let target_type = legendas.getString(legendas_index, 2);
+
+      let target_label = objectsArray[j][0];
+      let target_id = objectsArray[j][1];     
+      let target_type = objectsArray[j][2];;
       
-      let target = new Target(target_x, target_y + 40, target_size, target_label, target_id, target_type);
+      let target = new Target(target_x, target_y + 40, target_width, target_height, target_label, target_id, target_type);
       targets.push(target);
+    
+      j++;
     }  
   }
 }
@@ -231,13 +238,15 @@ function windowResized()
     // Below we find out out white space we can have between 2 cm targets
     let screen_width   = display.width * 2.54;             // screen width
     let screen_height  = display.height * 2.54;            // screen height
-    let target_size    = 2;                                // sets the target size (will be converted to cm when passed to createTargets)
-    let horizontal_gap = screen_width - target_size * GRID_COLUMNS;// empty space in cm across the x-axis (based on 10 targets per row)
-    let vertical_gap   = screen_height - target_size * GRID_ROWS;  // empty space in cm across the y-axis (based on 8 targets per column)
+    let target_height  = 2;
+    // sets the target size (will be converted to cm when passed to createTargets)
+    let target_width   = 2.95; 
+    let horizontal_gap = screen_width - target_width * GRID_COLUMNS;// empty space in cm across the x-axis (based on 10 targets per row)
+    let vertical_gap   = screen_height - target_height * GRID_ROWS;  // empty space in cm across the y-axis (based on 8 targets per column)
 
     // Creates and positions the UI targets according to the white space defined above (in cm!)
     // 80 represent some margins around the display (e.g., for text)
-    createTargets(target_size * PPCM, horizontal_gap * PPCM - 80, vertical_gap * PPCM - 80);
+    createTargets(target_width * PPCM, target_height * PPCM ,horizontal_gap * PPCM - 80, vertical_gap * PPCM - 80);
 
     // Starts drawing targets immediately after we go fullscreen
     draw_targets = true;
