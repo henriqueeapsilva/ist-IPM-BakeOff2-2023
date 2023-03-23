@@ -142,7 +142,7 @@ function mousePressed()
       if (targets[i].clicked(mouseX, mouseY)) 
       {
         // Checks if it was the correct target
-        if (targets[i].id === trials[current_trial]) hits++;
+        if (targets[i].id == trials[current_trial]) hits++;
         else misses++;
         
         current_trial++;              // Move on to the next trial/target
@@ -151,7 +151,7 @@ function mousePressed()
     }
     
     // Check if the user has completed all trials
-    if (current_trial === NUM_OF_TRIALS)
+    if (current_trial == NUM_OF_TRIALS)
     {
       testEndTime = millis();
       draw_targets = false;          // Stop showing targets and the user performance results
@@ -167,7 +167,7 @@ function mousePressed()
       }
     }
     // Check if this was the first selection in an attempt
-    else if (current_trial === 1) testStartTime = millis(); 
+    else if (current_trial == 1) testStartTime = millis(); 
   }
 }
 
