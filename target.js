@@ -5,61 +5,43 @@ class Color {
     this.b = b;
     this.a = 255;
   }
-  
 }
 
-var typeColor = {
-  Apple: new Color(174, 7, 8), 
-  Avocado: new Color(192, 207, 69), 
-  Banana: new Color(232, 200, 57), 
-  Kiwi: new Color(172, 201, 92), 
-  Lemon: new Color(240, 191, 10),
-  Lime: new Color(160, 191, 35),
-  Mango: new Color(237, 173, 14),
-  Melon: new Color(94, 97, 55),
-  Nectarine: new Color(247, 92, 30),
-  Orange: new Color(247, 92, 30),
-  Papaya: new Color(230, 86, 19),
-  "Passion Fruit": new Color(229, 184, 52),
-  Peach: new Color(247, 132, 105),
-  Pear: new Color(211, 210, 124),
-  Pineapple: new Color(223, 194, 76),
-  Plum: new Color(50, 10, 21),
-  Pomegranate: new Color(130, 38, 51),
-  "Red Grapefruit": new Color(247, 0, 0),
-  Satsumas: new Color(255, 100, 0),
-  Juice: new Color(64, 112, 171),
-  Milk: new Color(12, 156, 219),
-  Cream: new Color(244, 222, 186),
-  Oatghurt: new Color(247, 102, 174),
-  "Oat Milk": new Color(12, 156, 219),
-  "Sour Cream": new Color(244, 222, 186),
-  "Sour Milk": new Color(12, 156, 219),
-  Soyghurt: new Color(247, 102, 174),
-  "Soy Milk": new Color(12, 156, 219),
-  Yoghurt: new Color(247, 102, 174),
-  Asparagus: new Color(108, 122, 10),
-  Aubergine: new Color(66, 7, 45),
-  Cabbage: new Color(113, 155, 52),
-  Carrots: new Color(255, 100, 0),
-  Cucumber: new Color(78, 102, 54),
-  Garlic: new Color(216, 204, 216),
-  Ginger: new Color(201, 158, 104),
-  Leek: new Color(93, 115, 57),
-  Mushroom: new Color(182, 133, 114),
-  Onion: new Color(216, 204, 216),
-  Pepper: new Color(135, 0, 0),
-  Potato: new Color(220, 165, 82),
-  "Red Beet": new Color(135, 0, 0),
-  Tomato: new Color(200, 9, 0),
-  Zucchini: new Color(78, 102, 54)
+var letterColor = {
+  0: new Color(216, 204, 216),
+  A: new Color(174, 7, 8), 
+  B: new Color(192, 207, 69), 
+  C: new Color(232, 200, 57), 
+  D: new Color(172, 201, 92), 
+  E: new Color(240, 191, 10),
+  F: new Color(160, 191, 35),
+  G: new Color(237, 173, 14),
+  H: new Color(94, 97, 55),
+  I: new Color(247, 92, 30),
+  J: new Color(247, 92, 30),
+  K:new Color(230, 86, 19),
+  L: new Color(229, 184, 52),
+  M: new Color(247, 132, 105),
+  N: new Color(211, 210, 124),
+  O: new Color(223, 194, 76),
+  P: new Color(50, 10, 21),
+  Q: new Color(130, 38, 51),
+  R: new Color(247, 0, 0),
+  S: new Color(255, 100, 0),
+  T: new Color(64, 112, 171),
+  U: new Color(12, 156, 219),
+  V: new Color(244, 222, 186),
+  W: new Color(247, 102, 174),
+  X: new Color(12, 156, 219),
+  Y: new Color(244, 222, 186),
+  Z: new Color(12, 156, 219),
 }
 
 // Target class (position and width)
 class Target
 {
   
-  constructor(x, y, w,h , l, id, type)
+  constructor(x, y, w, h, l, id, type)
   {
     this.x      = x;
     this.y      = y;
@@ -86,7 +68,7 @@ class Target
   {
     // Draw target
     
-    let colorRect = typeColor[this.type];
+    let colorRect = letterColor[this.label[0]];
     
     if(this.clicked(mouseX,mouseY))
       fill(colorRect.r, colorRect.g, colorRect.b, 150); 
