@@ -9,32 +9,32 @@ class Color {
 
 var letterColor = {
   0: new Color(216, 204, 216),
-  A: new Color(174, 7, 8), 
+  A: new Color(184, 98, 27), 
   B: new Color(220, 220, 0), 
   C: new Color(34, 139, 34), 
   D: new Color(172, 201, 92), 
   E: new Color(240, 191, 10),
   F: new Color(0, 0, 205),
-  G: new Color(255, 140, 0),
+  G: new Color(185, 155, 107),
   H: new Color(94, 97, 55),
   I: new Color(247, 92, 30),
   J: new Color(247, 92, 30),
   K: new Color(139, 0, 139),
-  L: new Color(220, 0, 0),
-  M: new Color(0, 100, 0),
+  L: new Color(25, 167, 206),
+  M: new Color(87, 5, 48),
   N: new Color(211, 210, 124),
-  O: new Color(100, 100, 230),
-  P: new Color(50, 10, 21),
+  O: new Color(255, 140, 0),
+  P: new Color(225, 18, 153),
   Q: new Color(130, 38, 51),
-  R: new Color(247, 0, 0),
-  S: new Color(0, 128, 0),
-  T: new Color(247, 102, 174),
+  R: new Color(226, 24, 24),
+  S: new Color(56, 163, 165),
+  T: new Color(174, 7, 8),
   U: new Color(12, 156, 219),
   V: new Color(0, 0, 150),
   W: new Color(210, 210, 0),
   X: new Color(12, 156, 219),
   Y: new Color(139, 0, 139),
-  Z: new Color(12, 156, 219),
+  Z: new Color(11, 36, 71),
 }
 
 // Target class (position and width)
@@ -79,7 +79,7 @@ class Target
     rect(this.x,this.y,this.width, this.height);
     
     // Draw label
-    textFont("Arial", 18);
+    textFont("Arial", 22);
     textStyle(BOLD);
     fill(color(255,255,255));
     strokeWeight(2);
