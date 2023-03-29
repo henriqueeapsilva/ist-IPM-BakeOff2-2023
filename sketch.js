@@ -32,6 +32,16 @@ let attempt               = 0;      // users complete each test twice to account
 // Target list
 let targets               = [];
 
+// target order
+let targetOrder = [38, 20, 28, 58, 6, 76, 68, 60, 11, 39,
+                   53, 59, 5, 45, 37, 42, 48, 61, 34, 33,
+                   12, 63, 22, 7, 41, 50, 52, 21, 62, 15,
+                   64, 0, 65, 8, 9, 36, 31, 55, 16, 29,
+                   1, 17, 18, 56, 66, 10, 13, 71, 44, 43,
+                   2, 19, 24, 70, 75, 3, 26, 27, 49, 35,
+                   23, 30, 32, 25, 73, 4, 69, 46, 47, 51,
+                   77, 57, 78, 14, 72, 67, 54, 79, 40, 74];
+
 // Ensures important data is loaded before the program starts
 function preload()
 {
@@ -211,9 +221,9 @@ function createTargets(target_width, target_height, horizontal_gap, vertical_gap
       let target_y = (v_margin + target_height) * r + target_height/2;
       
 
-      let target_label = objectsArray[j][0];
-      let target_id = objectsArray[j][1];     
-      let target_type = objectsArray[j][2];;
+      let target_label = legendas.getString(targetOrder[j], 0);
+      let target_id = legendas.getNum(targetOrder[j], 1);    
+      let target_type = legendas.getString(targetOrder[j], 2);
       
       let target = new Target(target_x, target_y + 40, target_width, target_height, target_label, target_id, target_type);
       targets.push(target);
