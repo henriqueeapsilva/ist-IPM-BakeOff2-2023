@@ -70,7 +70,7 @@ function startTest()
     // Saves student and display information
     student_ID = parseInt(student_ID_form.value());
     display_size = parseInt(display_size_form.value());
-
+ 
     // Deletes UI elements
     main_text.remove();
     student_ID_form.remove();
@@ -90,7 +90,7 @@ function randomizeTrials()
   trials = [];      // Empties the array
     
   // Creates an array with random items from the "legendas" CSV
-  for (var i = 0; i < NUM_OF_TRIALS; i++) trials.push(floor(random(legendas.getRowCount()))); 
+  for (var i = 0; i < NUM_OF_TRIALS; i++) trials.push(floor(random(legendas.getRowCount())));
 
   // print("trial order: " + trials);   // prints trial order - for debug purposes
 }
